@@ -1,0 +1,6 @@
+to access the mySQL server, type:
+    mysql-ctl start in the command line
+
+to then input commands into the command line, type the following to access mysql:
+    mysql -u $C9_USER -p
+no password is required.    

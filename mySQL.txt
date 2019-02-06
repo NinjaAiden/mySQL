@@ -4,3 +4,29 @@ to access the mySQL server, type:
 to then input commands into the command line, type the following to access mysql:
     mysql -u $C9_USER -p
 no password is required.    
+
+"show datases;" shows databases that can be accessed
+
+"use DB_NAME" switches to the database you want to use
+
+"source FILE_NAME" runs a file with MySQL
+
+"""
+# select name of track and assign an alias for easier referencing
+select Track.Name as Track,
+
+# select name of media type and assign alias
+MediaType.Name as MediaType 
+
+# select the table to retrieve data from
+from Track
+
+# join the information together with data from another table
+inner join MediaType 
+
+# both tables have a common 'media type id' column, so this is used to bind the data
+on Track.MediaTypeId = MediaType.MediaTypeId;
+
+# complete statement
+SELECT Track.Name as Track, MediaType.Name as MediaType FROM Track INNER JOIN MediaType on Track.MediaTypeId = MediaType.MediaTypeId;
+"""

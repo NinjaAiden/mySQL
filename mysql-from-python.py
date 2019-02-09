@@ -15,7 +15,10 @@ connection = pymysql.connect(host='localhost',
 try:
     # run a query on database
     with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-        rows = cursor.executemany("DELETE fROM Friends WHERE name = %s;", ['Bob', 'Jim'])
+        list_of_names = ['fred', 'Fred']
+        # prepare a string with the same number of placeholders as in list_of_names
+        format_strings = ','.join(['%s']*len(list_of_names))
+        cursor.execute("DELETE fROM Friends WHERE name in ({});".format(format_strings), list_of_names)
         connection.commit()
         
 finally:
